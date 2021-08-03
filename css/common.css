@@ -1,0 +1,317 @@
+@charset "UTF-8";
+
+/* 웹폰트 */
+/* ?#iefix: 익스하위에서 아래쪽 woff, ttf를 다운로드 받지 않게 함 */
+ @font-face {
+    font-family: 'Courgette';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../font/Courgette-Regular.eot);
+    src: url(../font/Courgette-Regular?#iefix) format('embedded-opentype'),
+         url(../font/Courgette-Regular.woff) format('woff'),
+         url(../font/Courgette-Regular.ttf) format('truetype');
+} 
+
+/* 반응형, 모바일에서 모든 요소의 크기에 padding, border 포함 */
+*,:before,:after {box-sizing: border-box;}
+
+/* body에 들어갈 수 있는 모든 태그의 여백 빼기, 폼 요소는 없음 */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,address,code,em,img,strong,sub,sup,b,u,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figure,figcaption,footer,header,hgroup,menu,nav,section,main,audio,video {margin: 0; padding: 0;}
+
+/*html5추가 시멘틱엘리먼트를 익스하위버전에서 블럭으로 인식되도록함*/
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main {display: block;}
+button {
+    /* button태그에 손모양 커서 */
+    cursor: pointer;
+    outline: none;
+}
+/* 익스하위버전에서 이미지 선없애기 */
+fieldset,img {border: 0; vertical-align: top;}
+/* 리스트 기호 빼기 */
+ol,ul {list-style: none;}
+/* 태그 기본 기울임꼴 제거 */
+address,em {font-style: normal;}
+strong {font-weight: normal;}
+/* 페이지안에서 가장 많은 링크색 지정 */
+a {
+    text-decoration: none;
+    color: #333;
+    /* 모바일 크롬, 사파리에서 클릭 시 색상 */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1)
+}
+/* iframe으로 외부컨텐츠를 연결했을 때 
+외부컨텐츠안쪽내용이 우리페이지에 영향을 주지못하도록 가려줌*/
+iframe {overflow: hidden; border: 0}
+/* 칸의 선을 합치기, 칸의 간격없애기, 가로를 늘려줌 */
+table {border-collapse: collapse; border-spacing: 0; width: 100%}
+/* 굵기 빼고 헤딩태그 폰트크기를 body에 선언한 크기와 일치시킴 */
+h1,h2,h3,h4,h5,h6 {font-weight: normal; font-size: 100%}
+/* 폼요소의 높이가 다를때 요소끼리 세로정렬시킴, ios 둥근모서리, 기본스타일 제거 */
+input, select, textarea, button {
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    /* 크롬에서 작동 */
+    appearance: none; 
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1)
+}
+/* 익스 select 화살표 제거 */
+select::-ms-expand {display:none;}
+/* textarea 리사이즈기능 빼기 */
+textarea {resize: none;}
+/* 페이지안의 모든 폰트의 줄간격을 1.5로 통일시킴
+모바일 크롬, 모바일 사파리 브라우져의 텍스트 자동확대 방지*/
+body { line-height: 1.5; -webkit-text-size-adjust: none; }
+
+
+/***************************************************
+******************** 공통스타일 ********************
+***************************************************/
+body,input,button,select,textarea,table {
+    font-family: 'Poppins', 'Noto Sans KR', 'Apple SD Gothic Neo',sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: #222;
+}
+
+/* legend,caption,메뉴제목,섹션제목 블라인드 */
+legend,caption,.blind {position: absolute; overflow: hidden; clip: rect(0 0 0 0); margin: -1px; width: 1px; height: 1px;}
+.clearfix:after { content: ''; display: block; clear: both; }
+
+/* placeholder */
+::-webkit-input-placeholder {color:#bbb;} /* Webkit,크롬,사파리 */
+:-moz-placeholder {color:#bbb;} /* Firefox 4-18 */
+::-moz-placeholder {color:#bbb; opacity:1;} /* Firefox 19+ */
+:-ms-input-placeholder {color:#bbb !important;} /* IE10+ */
+
+/* 텍스트 선택시 컬러변경 */
+/* ::selection { background-color: #ef151e; color: #ffffff; }*/
+
+/* skip navgation */
+#skipNavi {position: relative;}
+#skipNavi a { position: absolute; left: 0; top: -999px; width: 100%; height: 40px; background: #495464; color: #fff; text-align: center; font-size: 18px; line-height: 40px; z-index: 999999; }
+#skipNavi a:focus, #skipNavi a:active, #skipNavi a:hover {top: 0;}
+
+
+/* 폼요소 공통스타일 */
+
+/* placeholder 공통 컬러 */
+::-webkit-input-placeholder {color:#777;}
+:-moz-placeholder {color:#777;} 
+::-moz-placeholder {color:#777; opacity:1;}
+:-ms-input-placeholder {color:#777 !important;}
+
+/* ie10,ie11 input x버튼 가리기 */
+input[type="text"]::-ms-clear { display: none; }
+/* ie10,ie11 input password 아이콘 가리기 */
+input[type="password"]::-ms-reveal { display: none; }
+
+/* 익스 화살표빼기 */
+select::-ms-expand { display: none; }
+
+/* -------------------------------------------------- */
+
+/* 메인 타이틀 공통 */
+.main_tit {padding-bottom: 50px; text-align: center; font-size: 50px; font-weight: 500; font-style: italic;}
+
+
+#wrap {min-width: 320px;}
+#header {
+    position: fixed;
+    left: 50%;
+    top: 30px;
+    z-index: 9999;
+    width: 100%;
+    transform: translateX(-50%);
+    transition: top 0.7s, background-color 0.7s;
+    
+}
+#header.on { top: 0; background:  rgb(94, 139, 126, 0.2); transition: all 0.7s; }
+
+
+#header .header_inner { width: 80%; height: 60px; margin: 0 auto; padding: 0 30px;}
+
+#header.on .logo {opacity: 1; transition: opacity 0.7s;}
+#header .logo {float: left; opacity: 0; transition: opacity 0.7s;}
+#header .logo a {line-height: 60px; font-size: 20px; font-weight: 500;}
+
+#header .gnb {float: right;}
+#header .gnb ul li {margin-left: 40px; display: inline-block;}
+#header .gnb ul li:last-child {margin-right: 0;}
+#header .gnb ul li a { display: block; line-height: 60px; color: #BBBFCA; font-weight: 500; font-size: 20px; }
+#header .gnb ul li:hover a { color: #333;}
+#header .gnb ul li.on a {color: #333;}
+
+#container {padding-bottom: 180px;}
+.main_home {
+    position: relative;
+    height: 100vh;
+    min-height: 500px;
+    background: url(../images/home_my.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    min-width: 320px;
+}
+.main_home .home_txt { position: absolute; left: 55%; top: 50%; }
+.main_home .home_txt h2 {height: 50px;}
+.main_home .home_txt .typing_txt {position: relative; display: inline-block; font-size: 30px; }
+.main_home .home_txt p { font-size: 16px;}
+.main_home .cursor { border-right: 2px solid #222; animation: cursorAni 1s ease-in-out infinite; }
+@keyframes cursorAni {
+   50%{border-color: transparent;}
+}
+
+.main_about { padding: 180px 30px 0;}
+.main_about .about_me { display: flex; justify-content: center; align-items: center;}
+.main_about .about_me .img_wrap { flex: 0 1 400px; }
+.main_about .about_me .img_wrap img {width: 100%;}
+.main_about .about_me .about_me_txt {flex: 0 1 400px; padding-left: 50px;}
+.main_about .about_me .about_me_txt dt {float: left; width: 80px; font-weight: 400;}
+.main_about .about_me .about_me_txt dd {padding-bottom: 10px;}
+.main_about .about_me .about_me_txt .bottom_txt {padding-top: 30px;}
+.main_about .about_me .about_me_txt .bottom_txt span {font-weight: 400; font-size: 18px; padding-right: 10px; line-height: 34px; color: #2F5D62;}
+.main_about .txt_wrap { padding: 150px 0; text-align: center; }
+.main_about .txt_wrap .top {font-size: 20px;}
+.main_about .txt_wrap .bottom {padding-top: 20px;}
+
+
+.main_about .skills h3 {font-size: 20px; font-weight: 500; text-align: center; }
+.main_about .skills .skill_wrap {
+    width: 700px;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+} 
+.main_about .skills .skill_wrap>li { display: flex; align-items: center; height: 110px; }
+.main_about .skills .skill_wrap>li .ico_skill {
+    position: relative;
+    float: left;
+    font-style: normal;
+    font-weight: 500;
+    color: #2F5D62;
+    flex: 0 1 30%;
+    text-align: center;
+}
+.main_about .skills .skill_wrap>li .ico_skill:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #2F5D62;
+    border-radius: 50%;
+}
+
+.main_about .skills .skill_wrap .ex_skill {padding-left: 50px; flex: 0 1 70%;}
+.main_about .skills .skill_wrap .ex_skill li { position: relative; line-height: 30px;}
+.main_about .skills .skill_wrap .ex_skill li:before { content: ''; position: absolute; left: -10px; top: 50%; margin-top: -2px; width: 4px; height: 4px; background: #222; border-radius: 50%; }
+
+
+.main_portfolio {padding: 180px 30px 0;}
+.main_portfolio .portfolio_inner {overflow: hidden; width: 1200px; margin: 0 auto;}
+.main_portfolio .img_wrap { float: left; max-width: 700px;}
+.main_portfolio .img_wrap img { width: 100%; }
+.main_portfolio .txt_wrap { float: left;  margin: 80px 0 0 80px;}
+.main_portfolio .txt_wrap h3 {font-size: 45px; font-weight: 300; padding-bottom: 30px;}
+.main_portfolio .txt_wrap h3:before {content: '01'; display: inline-block; color: #2F5D62; letter-spacing: 0.1em; padding-right: 20px; }
+.main_portfolio .txt_wrap li {overflow: hidden;}
+.main_portfolio .txt_wrap li p {float: left; font-size: 14px; padding-bottom: 10px;}
+.main_portfolio .txt_wrap li p.txt {width: 100px;}
+.main_portfolio .btn_wrap {padding-top: 30px;}
+.main_portfolio .btn_wrap .btn_go {
+    border: 1px solid #888;
+    width: 150px;
+    height: 35px;
+    line-height: 35px;
+    display: inline-block;
+    margin: 0 5px;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    transition: background-color 0.3s, color 0.3s;
+}
+.main_portfolio .btn_wrap .btn_go:hover {color: #fff; background: #888; transition: all ease-in-out 0.3s;}
+@media (max-width: 1250px) {
+    .main_portfolio .portfolio_inner {width: 1120px;}
+}
+
+
+/* pc에선 사용하지 않는 태그 */
+.main_about .txt_wrap .top br {display: none;}
+
+
+/* 태블릿 분기점 */
+@media (max-width: 1200px){
+    .main_tit {font-size: 40px; padding-bottom: 40px;}
+
+    #header .header_inner {width: 100%;}
+    #header .logo a {font-size: 18px;}
+    #header .gnb ul li a {font-size: 18px;}
+
+    .main_home .home_txt h2 {height: 36px;}
+    .main_home .home_txt .typing_txt {font-size: 24px;}
+    .main_home .home_txt p {font-size: 15px;}
+
+    .main_about .about_me br {display: none;}
+    .main_about .about_me .img_wrap {flex: 0 1 350px; min-width: 314px; }
+
+    .main_portfolio .portfolio_inner {width: auto; margin: 0;}
+    .main_portfolio .img_wrap {float: none; margin: 0 auto; max-width: 650px;}
+    .main_portfolio .txt_wrap { float: none; margin: 0 auto; width: 324px; text-align: center; }
+    .main_portfolio .txt_wrap h3 {font-size: 35px; padding-top: 16px;}
+    .main_portfolio .btn_wrap {padding-top: 20px;}
+    .main_portfolio .btn_wrap .btn_go {margin-bottom: 10px;}
+}
+
+@media (max-width: 810px){
+    .main_about .about_me .about_me_txt .bottom_txt {padding-top: 10px;}
+}
+
+/* 모바일 분기점 */
+@media (max-width: 767px){
+    #header {min-width: 320px;}
+    #header .header_inner { padding: 0 15px; text-align: center;}
+    #header .logo {display: none;}
+    #header .gnb {float: none;}
+    #header .gnb ul li {margin-left: 30px;}
+    #header .gnb ul li a {font-size: 16px;}
+
+    .main_home {min-width: 320px;}
+    .main_home .home_txt {left: 50%; top: 80%; transform: translateX(-50%); text-align: center; width: 280px;}
+    .main_home .home_txt h2 {white-space: nowrap;}
+    .main_home .home_txt .typing_txt {font-size: 20px;}
+    .main_home .home_txt p {font-size: 15px;}
+
+    .main_about {padding: 120px 15px 0; flex-wrap: wrap;}
+    .main_about .main_tit { flex: 0 1 100%; padding-bottom: 30px; font-size: 30px;}
+    .main_about .about_me {flex-wrap: wrap;}
+    .main_about .about_me .about_me_txt { padding: 5% 20px 0 26px;}
+    .main_about .about_me .about_me_txt .bottom_txt span {font-size: 16px;}
+    .main_about .txt_wrap {padding: 100px 0;}
+    .main_about .txt_wrap .bottom { padding: 20px 20px 0; }
+    .main_about .txt_wrap .bottom br { display: none;}
+    .main_about .skills .skill_wrap {width: auto; margin: 0; }
+    .main_about .skills .skill_wrap>li {height: 130px;}
+    .main_about .skills .skill_wrap>li .ico_skill {flex: 0 1 20%; font-size: 13px;}
+    .main_about .skills .skill_wrap>li .ico_skill:after {margin-left: -22px; margin-top: -22px; width: 44px; height: 44px;}
+    .main_about .skills .skill_wrap .ex_skill {flex: 0 1 80%; padding-left: 5%;}
+
+    .main_portfolio {padding: 120px 15px 0;}
+    .main_portfolio .txt_wrap {width: 298px;}
+    .main_portfolio .txt_wrap h3 {font-size: 26px; padding-bottom: 20px;}
+}
+
+@media (max-width: 550px) {
+    .main_about .txt_wrap .top br {display: block;}
+    .main_about .skills .skill_wrap .ex_skill li { line-height: normal; font-size: 13px; }
+
+    .main_portfolio .txt_wrap li p {font-size: 13px;}
+}
+
