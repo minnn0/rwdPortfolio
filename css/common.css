@@ -156,7 +156,7 @@ select::-ms-expand { display: none; }
 }
 
 .main_home .home_txt { position: absolute; left: 55%; top: 50%; }
-.main_home .home_txt h2 {height: 50px;}
+.main_home .home_txt {height: 50px;}
 .main_home .home_txt .typing_txt {position: relative; display: inline-block; font-size: 30px; }
 .main_home .home_txt p { font-size: 16px;}
 .main_home .cursor { border-right: 2px solid #222; animation: cursorAni 1s ease-in-out infinite; }
