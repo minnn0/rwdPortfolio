@@ -129,7 +129,7 @@ select::-ms-expand { display: none; }
     transition: top 0.7s, background-color 0.7s;
     
 }
-#header.on { top: 0; background:  rgb(94, 139, 126, 0.2); transition: all 0.7s; }
+#header.on { top: 0; background: #eee; transition: all 0.7s; }
 
 
 #header .header_inner { width: 80%; height: 60px; margin: 0 auto; padding: 0 30px;}
@@ -141,11 +141,11 @@ select::-ms-expand { display: none; }
 #header .gnb {float: right;}
 #header .gnb ul li {margin-left: 40px; display: inline-block;}
 #header .gnb ul li:last-child {margin-right: 0;}
-#header .gnb ul li a { display: block; line-height: 60px; color: #BBBFCA; font-weight: 500; font-size: 20px; }
+#header .gnb ul li a { display: block; line-height: 60px; color: #ccc; font-weight: 500; font-size: 20px; }
 #header .gnb ul li:hover a { color: #333;}
 #header .gnb ul li.on a {color: #333;}
 
-#container {padding-bottom: 180px;}
+#container {padding-bottom: 100px;}
 .main_home {
     position: relative;
     height: 100vh;
@@ -154,6 +154,7 @@ select::-ms-expand { display: none; }
     background-size: cover;
     min-width: 320px;
 }
+
 .main_home .home_txt { position: absolute; left: 55%; top: 50%; }
 .main_home .home_txt h2 {height: 50px;}
 .main_home .home_txt .typing_txt {position: relative; display: inline-block; font-size: 30px; }
@@ -214,13 +215,18 @@ select::-ms-expand { display: none; }
 .main_about .skills .skill_wrap .ex_skill li:before { content: ''; position: absolute; left: -10px; top: 50%; margin-top: -2px; width: 4px; height: 4px; background: #222; border-radius: 50%; }
 
 
-.main_portfolio {padding: 180px 30px 0;}
-.main_portfolio .portfolio_inner {overflow: hidden; width: 1200px; margin: 0 auto;}
+.main_portfolio {padding-top: 180px; width: 1200px; margin: 0 auto;}
+.main_portfolio .portfolio_inner {overflow: hidden; padding-bottom: 80px;}
 .main_portfolio .img_wrap { float: left; max-width: 700px;}
+.main_portfolio .even .img_wrap { float: right;}
 .main_portfolio .img_wrap img { width: 100%; }
-.main_portfolio .txt_wrap { float: left;  margin: 80px 0 0 80px;}
+.main_portfolio .txt_wrap { float: left;  margin: 8% 0 0 8%;}
 .main_portfolio .txt_wrap h3 {font-size: 45px; font-weight: 300; padding-bottom: 30px;}
-.main_portfolio .txt_wrap h3:before {content: '01'; display: inline-block; color: #2F5D62; letter-spacing: 0.1em; padding-right: 20px; }
+.main_portfolio .txt_wrap span {
+    color: #2F5D62;
+    letter-spacing: 0.1em;
+    padding-right: 20px;
+}
 .main_portfolio .txt_wrap li {overflow: hidden;}
 .main_portfolio .txt_wrap li p {float: left; font-size: 14px; padding-bottom: 10px;}
 .main_portfolio .txt_wrap li p.txt {width: 100px;}
@@ -239,9 +245,13 @@ select::-ms-expand { display: none; }
 }
 .main_portfolio .btn_wrap .btn_go:hover {color: #fff; background: #888; transition: all ease-in-out 0.3s;}
 @media (max-width: 1250px) {
-    .main_portfolio .portfolio_inner {width: 1120px;}
+    .main_portfolio {width: 1120px;}
 }
 
+#footer {
+    height: 300px;
+    background: #2F5D62;
+}
 
 /* pc에선 사용하지 않는 태그 */
 .main_about .txt_wrap .top br {display: none;}
@@ -262,8 +272,9 @@ select::-ms-expand { display: none; }
     .main_about .about_me br {display: none;}
     .main_about .about_me .img_wrap {flex: 0 1 350px; min-width: 314px; }
 
-    .main_portfolio .portfolio_inner {width: auto; margin: 0;}
+    .main_portfolio {width: auto; padding: 180px 15px 0; margin: 0;}
     .main_portfolio .img_wrap {float: none; margin: 0 auto; max-width: 650px;}
+    .main_portfolio .even .img_wrap {float: none;}
     .main_portfolio .txt_wrap { float: none; margin: 0 auto; width: 324px; text-align: center; }
     .main_portfolio .txt_wrap h3 {font-size: 35px; padding-top: 16px;}
     .main_portfolio .btn_wrap {padding-top: 20px;}
@@ -303,7 +314,7 @@ select::-ms-expand { display: none; }
     .main_about .skills .skill_wrap>li .ico_skill:after {margin-left: -22px; margin-top: -22px; width: 44px; height: 44px;}
     .main_about .skills .skill_wrap .ex_skill {flex: 0 1 80%; padding-left: 5%;}
 
-    .main_portfolio {padding: 120px 15px 0;}
+    .main_portfolio {padding-top: 120px}
     .main_portfolio .txt_wrap {width: 298px;}
     .main_portfolio .txt_wrap h3 {font-size: 26px; padding-bottom: 20px;}
 }
